@@ -1,0 +1,46 @@
+﻿<Window x:Class="Microsoft.PdbDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Microsoft - PDB Downloader" Height="400" Width="600" Background="#FF080808" ResizeMode="NoResize">
+
+    <Grid AllowDrop="True" DragEnter="OnDragEnter" DragLeave="OnDragLeave" Drop="OnDrop">
+        
+        <!-- TEXT -->
+
+        <TextBlock Foreground="LightGray" FontFamily="Segoe UI" FontWeight="Light" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" IsHitTestVisible="False">
+            Drag and Drop.
+            <LineBreak/>
+            (.sys/.dll/.exe)
+        </TextBlock>
+
+        <!-- DRAG AND DROP -->
+
+        <Border Name="DragAndDropBorder" Background="#FF080808" Opacity="0" BorderThickness="1" Margin="10,10,10,10" CornerRadius="15">
+
+            <Border.BorderBrush>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Rectangle Stroke="LightGray"
+                                   StrokeDashArray="10 8"
+                                   StrokeThickness="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=BorderThickness.Top}"
+                                   StrokeDashCap="Square"
+                                   StrokeEndLineCap="Square"
+                                   StrokeStartLineCap="Square"
+                                   Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
+                                   Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"
+                                   RadiusX="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.TopLeft}"
+                                   RadiusY="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.BottomRight}"/>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Border.BorderBrush>
+
+            <TextBlock Foreground="LightGray" FontFamily="Segoe UI" FontWeight="Light" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" IsHitTestVisible="False">
+                And now, drop!
+            </TextBlock>
+        </Border>
+
+    </Grid>
+</Window>
